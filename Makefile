@@ -62,12 +62,12 @@ ${INDEPENDENCE_PLOT} : ${RX14DAY_FCST}
 	${INDEPENDENCE} $< ${VAR} $@
 
 ## bias-correction-additive : additive bias corrected forecast data using observations
-bias-correction : ${RX14DAY_FCST_ADDITIVE_BIAS_CORRECTED}
+bias-correction-additive : ${RX14DAY_FCST_ADDITIVE_BIAS_CORRECTED}
 ${RX14DAY_FCST_ADDITIVE_BIAS_CORRECTED} : ${RX14DAY_FCST} ${RX14DAY_OBS}
 	${BIAS_CORRECTION} $< $(word 2,$^) ${VAR} additive $@ --base_period ${BASE_PERIOD} --rounding_freq A --min_lead ${MIN_LEAD}
 
 ## bias-correction-multiplicative : multiplicative bias corrected forecast data using observations
-bias-correction : ${RX14DAY_FCST_MULTIPLICATIVE_BIAS_CORRECTED}
+bias-correction-multiplicative : ${RX14DAY_FCST_MULTIPLICATIVE_BIAS_CORRECTED}
 ${RX14DAY_FCST_MULTIPLICATIVE_BIAS_CORRECTED} : ${RX14DAY_FCST} ${RX14DAY_OBS}
 	${BIAS_CORRECTION} $< $(word 2,$^) ${VAR} multiplicative $@ --base_period ${BASE_PERIOD} --rounding_freq A --min_lead ${MIN_LEAD}
 
